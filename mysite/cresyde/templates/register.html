@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cresyde/style.css' %}">
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+          <div style="text-align:left">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+<ul>
+    <div style="text-align:left">
+  <p>Country of Residence: {{ profile.country }}<input type="text" name="text" id="text" maxlength="50"></p></p>
+        <p>Phone number: {{ profile.pNumber }}<input type="text" name="text1" id="text1" maxlength="10"></p>
+    </div>
+
+</ul>
+
+    <button type="submit">Sign up</button>
+                      </div>
+
+
+  </form>
+{% endblock %}
