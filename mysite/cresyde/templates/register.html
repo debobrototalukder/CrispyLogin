@@ -1,27 +1,26 @@
-{% extends 'base.html' %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'cresyde/style.css' %}">
-
-{% block title %}Sign Up{% endblock %}
-
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-          <div style="text-align:left">
+<body>
+          <a class="navbar-brand mr-4" style="color: white;font-size:40px;text-align:center" href="{% url 'register' %}">Sign Up</a>
 
-    {% csrf_token %}
-    {{ form.as_p }}
-<ul>
-    <div style="text-align:left">
-  <p>Country of Residence: {{ profile.country }}<input type="text" name="text" id="text" maxlength="50"></p></p>
-        <p>Phone number: {{ profile.pNumber }}<input type="text" name="text1" id="text1" maxlength="10"></p>
+</body>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form|crispy }}
+                {{ form2|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href= "{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
     </div>
-
-</ul>
-
-    <button type="submit">Sign up</button>
-                      </div>
-
-
-  </form>
-{% endblock %}
+{% endblock content %}

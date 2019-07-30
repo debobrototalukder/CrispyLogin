@@ -7,4 +7,4 @@ from django.forms import CharField, IntegerField
 
 class Profile(models.Model):
     country = CharField(max_length=200)
-    pNumber = IntegerField()
+    number = IntegerField()
