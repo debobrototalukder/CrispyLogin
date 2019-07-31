@@ -22,15 +22,23 @@ class Registration(generic.CreateView):
     def post(self, request):
         form = ProfileForm(request.POST)
         form2 = ProfileExtraForm(request.POST)
+        #
+        # if form.is_valid():
+        #     user = form.save()
+        #     print('words')
+        #     print(form2)
+        #
+        #     if form2.is_valid():
+        #         print("something")
+        #         values = form2.save(commit=False)
+        #         values.fKey = user
+        #         form2.save()
 
-        if form.is_valid():
-            form.save()
-            print('words')
-            print(form2)
-
-            if form2.is_valid():
-                print("something")
-                form2.save()
+        if all((form.is_valid(), form2.is_valid())):
+            user = form.save()
+            values = form2.save(commit=False)
+            values.fKey = user
+            values.save()
 
         print(request.POST)
 

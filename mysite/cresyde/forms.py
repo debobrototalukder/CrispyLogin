@@ -36,7 +36,8 @@ class ProfileExtraForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        exclude = []
+        exclude = ['fKey']
+
 
 class LoginForm(forms.Form):
     username = forms.CharField()
