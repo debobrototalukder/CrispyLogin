@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-  Welcome {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Logout</a></p>
+            {% csrf_token %}
+<p style = "font-size: 100px; color: white; font-family: Miami; font-style: oblique">Welcome {{ user.username }}!</p>
+<center>
+  <img src="https://cdn2.bigcommerce.com/server1500/8eaf0/product_images/uploaded_images/elsa-frozen-wall-decal.jpg" alt="Avatar" style="width:20%"> </center>
+
+  <div class="container">
+    <center>
+
+    <h4 style = "color:white"><b>{{ user.username }}</b></h4>
+    <p>Occupation: Barber</p>
+      </center>
+  <p><a href="{% url 'logout' %}" text-align="left">Logout</a></p>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Login</a>
+<div class="card">
+
+  </div>
+</div>
 {% endif %}
 {% endblock %}
