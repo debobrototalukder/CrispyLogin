@@ -6,5 +6,5 @@ from django.forms import CharField, IntegerField
 
 
 class Profile(models.Model):
-    country = CharField(max_length=200)
-    number = IntegerField()
+    country = models.CharField(max_length=200, default='empty')
+    number = models.IntegerField(default=0)

@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cresyde_db',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': '',
+        'PORT': '5432',
     }
 }
 
@@ -130,6 +134,4 @@ LOGOUT_REDIRECT_URL = 'home'
 REGISTER_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.ModelBackend',
-)
+ACCOUNT_SIGNUP_FORM_CLASS = "cresyde.forms.customSignupForm"
